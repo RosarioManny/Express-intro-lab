@@ -34,10 +34,11 @@ app.get('/collectible/:indexParameter', (req, res) => {
         { name: 'autographed picture of a dog', price: 10 },
         { name: 'vintage 1970s yogurt SOLD AS-IS', price: 0.99 }
       ];
+      
       const itemIdx = req.params.indexParameter
-
-      if (itemIdx == collectibles.length)
-        res.send(`${itemIdx} is ${itemIdx.price}`)
+     
+      if (itemIdx < collectibles.length)
+        res.send(`${collectibles[itemIdx].name} is ${collectibles[itemIdx].price}`)
     else {
         res.send("Coming soon. Check back later!")
     }
